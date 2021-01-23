@@ -4,9 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\GameplayResource;
 use App\Http\Resources\GameplaysCollection;
+use App\Http\Resources\GameResource;
 use App\Models\Game;
 use App\Models\Gameplay;
+use Exception;
 use Illuminate\Http\Request;
+use PhpParser\Node\Expr\Throw_;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Throwable;
 
 class GameplayController extends Controller
 {
@@ -19,8 +24,9 @@ class GameplayController extends Controller
     public function index()
     {
 
-        $gameplays = Gameplay::with('players')
+        $gameplays = Gameplay::with(['players'])
             ->paginate(20);
+        // return  GameResource::collection($gameplays->paginate(5))->response();
         return new GameplaysCollection($gameplays);
     }
 
@@ -32,6 +38,14 @@ class GameplayController extends Controller
      */
     public function show($gameplay)
     {
-        return new GameplayResource(Gameplay::findOrFail($gameplay));
+        try {
+            return new GameplayResource(Gameplay::findOrFail($gameplay));
+        } catch (Exception $e) {
+            
+                return response()->json([
+                    'message' => 'Record Not Found !!!'
+                ], 404);
+            
+        }
     }
 }

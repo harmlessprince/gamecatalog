@@ -17,7 +17,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::with(['versions', 'gameplays']);
-        return UserResource::collection($users->paginate(10))->response();
+        return UserResource::collection($users->paginate(5))->response();
     }
 
   

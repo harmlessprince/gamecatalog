@@ -20,7 +20,7 @@ class GameplaySeeder extends Seeder
         DB::disableQueryLog();//disable log
         //
         $startDate = Carbon::create(2014, 1, 1, 12);
-        $gaminDays =30;
+        $gaminDays =60;
         // $gaminDays =300;
         // $noOfGamePlaysPerDay = 10;
         while ($gaminDays > 0) {

@@ -2,7 +2,11 @@
 
 namespace App\Exceptions;
 
+use Exception;
+use GuzzleHttp\Psr7\Request;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Support\Facades\Request as FacadesRequest;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -33,8 +37,11 @@ class Handler extends ExceptionHandler
      */
     public function register()
     {
+
+
         $this->reportable(function (Throwable $e) {
-            //
         });
     }
+
+
 }

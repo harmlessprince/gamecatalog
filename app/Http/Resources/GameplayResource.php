@@ -20,7 +20,7 @@ class GameplayResource extends JsonResource
             'no_players'   => $this->no_players,
             'game_type' => ($this->multiplayer) ? 'multiplayer' : 'single',
             'version' =>  new VersionResource($this->version),
-            'players'  => UserResource::collection($this->players),
+            'players'  =>  UserResource::collection($this->players),
             'created_at'   => Carbon::parse($this->created_at)->format("F j, Y, g:i a"),
         ];
     }

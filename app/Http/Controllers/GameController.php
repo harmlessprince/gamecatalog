@@ -7,6 +7,7 @@ use App\Http\Resources\GamesCollection;
 use App\Models\Game;
 use App\Models\Version;
 use Carbon\Carbon;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -26,6 +27,9 @@ class GameController extends Controller
             ->groupBy(function ($val) {
                 return Carbon::parse($val->created_at)->format('d j, Y');
             });
+
+
+        // return GameResource::collection($versions)->response();
 
         return new GamesCollection($versions);
     }
@@ -53,6 +57,15 @@ class GameController extends Controller
     public function show($game)
     {
         //
-        return new GameResource(Game::findOrFail($game));
+
+
+        try {
+            return new GameResource(Game::findOrFail($game));
+        } catch (Exception $e) {
+
+            return response()->json([
+                'message' => 'Record Not Found !!!'
+            ], 404);
+        }
     }
 }
