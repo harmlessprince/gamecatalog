@@ -21,20 +21,19 @@ class VersionUserSeeder extends Seeder
         // $versions = Version::all();
         echo "Assiging version of games to users";
         sleep(1);
-        for ($i = 10; $i < 45; $i++) {
+        for ($i = 1; $i <= 45; $i++) {
             foreach ($players as  $player) {
-                $randomVersionID = rand(1, 45);
-                if (DB::table('version_user')->where('version_id', '=', $randomVersionID)->where('user_id', $player->id)->exists()) {
-                    continue;
-                } else {
-                    $versionID = Version::where('id', $randomVersionID)->value('id');
+            //     $randomVersionID = rand(1, 45);
+                // if (DB::table('version_user')->where('version_id', '=', $i)->where('user_id', $player->id)->exists()) {
+                    // continue;
+                // } else {
+                    $versionID = Version::where('id', $i)->value('id');
                     echo "picked version id of: " . $versionID . "\n";
-                    
                     $userVersions[] = [
                         'version_id' => $versionID,
                         'user_id' => $player->id,
                     ];
-                }
+                // }
             }
         }
         $userVersionsChunks = array_chunk($userVersions, 500);
