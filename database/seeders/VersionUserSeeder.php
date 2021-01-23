@@ -33,6 +33,7 @@ class VersionUserSeeder extends Seeder
                     $userVersions[] = [
                         'version_id' => $i,
                         'user_id' => $player->id,
+                        'created_at'   => now(),
                     ];
                 // }
             }
