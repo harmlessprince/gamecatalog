@@ -49,7 +49,7 @@ Returns json data of all players, their games and their gameplays (overall and f
 
     Code: 200
 
-    Content:
+    Sample Content:
 
     ```
        "data": [
@@ -155,8 +155,8 @@ Returns json data of all players, their games and their gameplays (overall and f
         url: "gamecatalog.herokuapp.com/api/players/",
         dataType: "json",
         type : "GET",
-        success : function(r) {
-        console.log(r);
+        success : function(data) {
+        console.log(data);
         }
     });
 
@@ -168,7 +168,7 @@ Returns json data of a player, its games and gameplays (overall and for each gam
 
 - URL
 
-    /players/:player
+    /players/:players
 
 - Method:
 
@@ -188,7 +188,7 @@ Returns json data of a player, its games and gameplays (overall and for each gam
 
     Code: 200
 
-    Content:
+    Sample Content:
 
     ```
       {
@@ -345,13 +345,13 @@ Returns json data of a player, its games and gameplays (overall and for each gam
         url: "gamecatalog.herokuapp.com/api/players/14",
         dataType: "json",
         type : "GET",
-        success : function(r) {
-        console.log(r);
+        success : function(data) {
+        console.log(data);
         }
     });
 
     ```
-### Get  All Games Version
+### Get All Games and their Versions
 
 Returns json data of all the games version grouped per year and the players that has it.
 
@@ -369,13 +369,13 @@ Returns json data of all the games version grouped per year and the players that
 
 
 - Data Params
-    started
+    
 
 - Success Response:
 
     Code: 200
 
-    Content:
+    Sample Content:
 
     ```
       {
@@ -1082,7 +1082,7 @@ Returns json data of a game  and the versions
 
     Code: 200
 
-    Content:
+    Sample Content:
 
     ```
 {
@@ -1170,10 +1170,9 @@ Returns json data of all games within a date range
 
     Code: 200
 
-    Content:
+    Sample Content:
 
-    ```
-{
+    ```{
    {
    "data":[
       {
@@ -1282,9 +1281,8 @@ Returns json data of all games within a date range
       "per_page":10,
       "to":1,
       "total":1
-   }
+      }
 }
-    ```
 
 - Sample Call:
 
@@ -1299,3 +1297,711 @@ Returns json data of all games within a date range
     });
 
     ```
+### Get  All Gameplays
+
+Returns json data of all the gameplays and the players that participated.
+
+- URL
+
+    /gameplays/
+
+- Method:
+
+    GET
+
+- URL Params
+
+    None
+
+
+- Data Params
+
+    None
+
+- Success Response:
+
+    Code: 200
+
+    Sample Content:
+
+    ```
+   {
+   "data":[
+      {
+         "id":1,
+         "version_id":24,
+         "multiplayer":1,
+         "no_players":2,
+         "created_at":"2014-03-02 12:00:00",
+         "players":[
+            {
+               "id":5,
+               "name":"Cristobal Schneider",
+               "email":"berneice77@example.org",
+               "nickname":"ritchie.rodrigo",
+               "last_login_at":"2021-01-23 17:21:18",
+               "last_login_ip":"236.82.58.154",
+               "created_at":"2021-01-23 17:21:18",
+               "pivot":{
+                  "gameplay_id":1,
+                  "user_id":5,
+                  "role":"host"
+               }
+            },
+            {
+               "id":39,
+               "name":"Jedidiah Klein",
+               "email":"pankunding@example.net",
+               "nickname":"mckayla63",
+               "last_login_at":"2021-01-23 17:21:18",
+               "last_login_ip":"79.234.57.89",
+               "created_at":"2021-01-23 17:21:18",
+               "pivot":{
+                  "gameplay_id":1,
+                  "user_id":39,
+                  "role":"guest"
+               }
+            }
+         ]
+      },
+      {
+         "id":2,
+         "version_id":24,
+         "multiplayer":0,
+         "no_players":1,
+         "created_at":"2014-03-02 12:00:00",
+         "players":[
+            {
+               "id":42,
+               "name":"Maximus Jacobson",
+               "email":"nathaniel12@example.com",
+               "nickname":"pblick",
+               "last_login_at":"2021-01-23 17:21:18",
+               "last_login_ip":"217.8.205.23",
+               "created_at":"2021-01-23 17:21:18",
+               "pivot":{
+                  "gameplay_id":2,
+                  "user_id":42,
+                  "role":"host"
+               }
+            }
+         ]
+      },
+      {
+         "id":9,
+         "version_id":24,
+         "multiplayer":1,
+         "no_players":2,
+         "created_at":"2014-03-02 12:00:00",
+         "players":[
+            {
+               "id":39,
+               "name":"Jedidiah Klein",
+               "email":"pankunding@example.net",
+               "nickname":"mckayla63",
+               "last_login_at":"2021-01-23 17:21:18",
+               "last_login_ip":"79.234.57.89",
+               "created_at":"2021-01-23 17:21:18",
+               "pivot":{
+                  "gameplay_id":9,
+                  "user_id":39,
+                  "role":"host"
+               }
+            },
+            {
+               "id":28,
+               "name":"Rudy Gorczany Jr.",
+               "email":"caleigh29@example.net",
+               "nickname":"jude86",
+               "last_login_at":"2021-01-23 17:21:18",
+               "last_login_ip":"157.0.120.154",
+               "created_at":"2021-01-23 17:21:18",
+               "pivot":{
+                  "gameplay_id":9,
+                  "user_id":28,
+                  "role":"guest"
+               }
+            }
+         ]
+      },
+      {
+         "id":10,
+         "version_id":24,
+         "multiplayer":0,
+         "no_players":1,
+         "created_at":"2014-03-02 12:00:00",
+         "players":[
+            {
+               "id":29,
+               "name":"Lenora O'Reilly",
+               "email":"xwalker@example.com",
+               "nickname":"jerod87",
+               "last_login_at":"2021-01-23 17:21:18",
+               "last_login_ip":"167.166.49.159",
+               "created_at":"2021-01-23 17:21:18",
+               "pivot":{
+                  "gameplay_id":10,
+                  "user_id":29,
+                  "role":"host"
+               }
+            }
+         ]
+      },
+      {
+         "id":11,
+         "version_id":24,
+         "multiplayer":1,
+         "no_players":3,
+         "created_at":"2014-03-02 12:00:00",
+         "players":[
+            {
+               "id":30,
+               "name":"Ms. Scarlett Macejkovic DVM",
+               "email":"mitchell.wilfredo@example.com",
+               "nickname":"kuvalis.blanca",
+               "last_login_at":"2021-01-23 17:21:18",
+               "last_login_ip":"190.138.207.126",
+               "created_at":"2021-01-23 17:21:18",
+               "pivot":{
+                  "gameplay_id":11,
+                  "user_id":30,
+                  "role":"host"
+               }
+            },
+            {
+               "id":24,
+               "name":"Miss Jude Kovacek I",
+               "email":"karli.stroman@example.org",
+               "nickname":"king.lester",
+               "last_login_at":"2021-01-23 17:21:18",
+               "last_login_ip":"87.236.66.220",
+               "created_at":"2021-01-23 17:21:18",
+               "pivot":{
+                  "gameplay_id":11,
+                  "user_id":24,
+                  "role":"guest"
+               }
+            },
+            {
+               "id":7,
+               "name":"Mr. Alfred Flatley I",
+               "email":"obrekke@example.net",
+               "nickname":"eflatley",
+               "last_login_at":"2021-01-23 17:21:18",
+               "last_login_ip":"127.185.168.147",
+               "created_at":"2021-01-23 17:21:18",
+               "pivot":{
+                  "gameplay_id":11,
+                  "user_id":7,
+                  "role":"guest"
+               }
+            }
+         ]
+      },
+      {
+         "id":12,
+         "version_id":24,
+         "multiplayer":1,
+         "no_players":3,
+         "created_at":"2014-03-02 12:00:00",
+         "players":[
+            {
+               "id":23,
+               "name":"Luciano Kilback",
+               "email":"esta07@example.org",
+               "nickname":"rafaela.hermiston",
+               "last_login_at":"2021-01-23 17:21:18",
+               "last_login_ip":"83.227.1.131",
+               "created_at":"2021-01-23 17:21:18",
+               "pivot":{
+                  "gameplay_id":12,
+                  "user_id":23,
+                  "role":"host"
+               }
+            },
+            {
+               "id":40,
+               "name":"Ray Yost",
+               "email":"lconsidine@example.com",
+               "nickname":"dalton87",
+               "last_login_at":"2021-01-23 17:21:18",
+               "last_login_ip":"124.151.247.190",
+               "created_at":"2021-01-23 17:21:18",
+               "pivot":{
+                  "gameplay_id":12,
+                  "user_id":40,
+                  "role":"guest"
+               }
+            },
+            {
+               "id":11,
+               "name":"Dr. Lavern Wisozk",
+               "email":"bonita.king@example.com",
+               "nickname":"caitlyn41",
+               "last_login_at":"2021-01-23 17:21:18",
+               "last_login_ip":"74.72.170.41",
+               "created_at":"2021-01-23 17:21:18",
+               "pivot":{
+                  "gameplay_id":12,
+                  "user_id":11,
+                  "role":"guest"
+               }
+            }
+         ]
+      },
+      {
+         "id":13,
+         "version_id":24,
+         "multiplayer":0,
+         "no_players":1,
+         "created_at":"2014-03-02 12:00:00",
+         "players":[
+            {
+               "id":12,
+               "name":"Mossie Moore IV",
+               "email":"francesco02@example.org",
+               "nickname":"ocummerata",
+               "last_login_at":"2021-01-23 17:21:18",
+               "last_login_ip":"93.240.72.53",
+               "created_at":"2021-01-23 17:21:18",
+               "pivot":{
+                  "gameplay_id":13,
+                  "user_id":12,
+                  "role":"host"
+               }
+            }
+         ]
+      },
+      {
+         "id":14,
+         "version_id":24,
+         "multiplayer":1,
+         "no_players":3,
+         "created_at":"2014-03-02 12:00:00",
+         "players":[
+            {
+               "id":35,
+               "name":"Reilly Nicolas",
+               "email":"jeff.wyman@example.org",
+               "nickname":"moises.davis",
+               "last_login_at":"2021-01-23 17:21:18",
+               "last_login_ip":"195.205.112.233",
+               "created_at":"2021-01-23 17:21:18",
+               "pivot":{
+                  "gameplay_id":14,
+                  "user_id":35,
+                  "role":"host"
+               }
+            },
+            {
+               "id":50,
+               "name":"Vada Cronin Sr.",
+               "email":"kstrosin@example.org",
+               "nickname":"heidenreich.jennyfer",
+               "last_login_at":"2021-01-23 17:21:18",
+               "last_login_ip":"124.21.118.108",
+               "created_at":"2021-01-23 17:21:18",
+               "pivot":{
+                  "gameplay_id":14,
+                  "user_id":50,
+                  "role":"guest"
+               }
+            },
+            {
+               "id":7,
+               "name":"Mr. Alfred Flatley I",
+               "email":"obrekke@example.net",
+               "nickname":"eflatley",
+               "last_login_at":"2021-01-23 17:21:18",
+               "last_login_ip":"127.185.168.147",
+               "created_at":"2021-01-23 17:21:18",
+               "pivot":{
+                  "gameplay_id":14,
+                  "user_id":7,
+                  "role":"guest"
+               }
+            }
+         ]
+      },
+      {
+         "id":15,
+         "version_id":24,
+         "multiplayer":0,
+         "no_players":1,
+         "created_at":"2014-03-02 12:00:00",
+         "players":[
+            {
+               "id":17,
+               "name":"Roslyn Pacocha",
+               "email":"hester24@example.com",
+               "nickname":"gutkowski.bryce",
+               "last_login_at":"2021-01-23 17:21:18",
+               "last_login_ip":"57.30.225.46",
+               "created_at":"2021-01-23 17:21:18",
+               "pivot":{
+                  "gameplay_id":15,
+                  "user_id":17,
+                  "role":"host"
+               }
+            }
+         ]
+      },
+      {
+         "id":16,
+         "version_id":24,
+         "multiplayer":1,
+         "no_players":3,
+         "created_at":"2014-03-02 12:00:00",
+         "players":[
+            {
+               "id":6,
+               "name":"Shea Strosin",
+               "email":"dtrantow@example.net",
+               "nickname":"alexys25",
+               "last_login_at":"2021-01-23 17:21:18",
+               "last_login_ip":"132.197.101.183",
+               "created_at":"2021-01-23 17:21:18",
+               "pivot":{
+                  "gameplay_id":16,
+                  "user_id":6,
+                  "role":"host"
+               }
+            },
+            {
+               "id":20,
+               "name":"Prof. Rossie Cormier",
+               "email":"mmcdermott@example.com",
+               "nickname":"jarod28",
+               "last_login_at":"2021-01-23 17:21:18",
+               "last_login_ip":"171.126.41.27",
+               "created_at":"2021-01-23 17:21:18",
+               "pivot":{
+                  "gameplay_id":16,
+                  "user_id":20,
+                  "role":"guest"
+               }
+            },
+            {
+               "id":34,
+               "name":"Eulah Bernhard III",
+               "email":"nova35@example.org",
+               "nickname":"fahey.tomasa",
+               "last_login_at":"2021-01-23 17:21:18",
+               "last_login_ip":"26.175.143.37",
+               "created_at":"2021-01-23 17:21:18",
+               "pivot":{
+                  "gameplay_id":16,
+                  "user_id":34,
+                  "role":"guest"
+               }
+            }
+         ]
+      },
+      {
+         "id":17,
+         "version_id":24,
+         "multiplayer":0,
+         "no_players":1,
+         "created_at":"2014-03-02 12:00:00",
+         "players":[
+            {
+               "id":43,
+               "name":"Jalon Rutherford",
+               "email":"torrance48@example.net",
+               "nickname":"arvilla84",
+               "last_login_at":"2021-01-23 17:21:18",
+               "last_login_ip":"20.220.239.219",
+               "created_at":"2021-01-23 17:21:18",
+               "pivot":{
+                  "gameplay_id":17,
+                  "user_id":43,
+                  "role":"host"
+               }
+            }
+         ]
+      },
+      {
+         "id":18,
+         "version_id":24,
+         "multiplayer":0,
+         "no_players":1,
+         "created_at":"2014-03-02 12:00:00",
+         "players":[
+            {
+               "id":19,
+               "name":"Mrs. Samantha Boyle",
+               "email":"mark44@example.org",
+               "nickname":"oswald74",
+               "last_login_at":"2021-01-23 17:21:18",
+               "last_login_ip":"224.35.174.248",
+               "created_at":"2021-01-23 17:21:18",
+               "pivot":{
+                  "gameplay_id":18,
+                  "user_id":19,
+                  "role":"host"
+               }
+            }
+         ]
+      },
+      {
+         "id":19,
+         "version_id":24,
+         "multiplayer":0,
+         "no_players":1,
+         "created_at":"2014-03-02 12:00:00",
+         "players":[
+            {
+               "id":48,
+               "name":"Cole Wiza V",
+               "email":"ygerlach@example.com",
+               "nickname":"idurgan",
+               "last_login_at":"2021-01-23 17:21:18",
+               "last_login_ip":"164.223.129.207",
+               "created_at":"2021-01-23 17:21:18",
+               "pivot":{
+                  "gameplay_id":19,
+                  "user_id":48,
+                  "role":"host"
+               }
+            }
+         ]
+      },
+      {
+         "id":20,
+         "version_id":24,
+         "multiplayer":1,
+         "no_players":3,
+         "created_at":"2014-03-02 12:00:00",
+         "players":[
+            {
+               "id":41,
+               "name":"Orlando Pouros",
+               "email":"lindgren.eladio@example.com",
+               "nickname":"garret08",
+               "last_login_at":"2021-01-23 17:21:18",
+               "last_login_ip":"203.96.120.180",
+               "created_at":"2021-01-23 17:21:18",
+               "pivot":{
+                  "gameplay_id":20,
+                  "user_id":41,
+                  "role":"host"
+               }
+            },
+            {
+               "id":45,
+               "name":"Hazel Bernhard Jr.",
+               "email":"wintheiser.demarco@example.org",
+               "nickname":"ullrich.winifred",
+               "last_login_at":"2021-01-23 17:21:18",
+               "last_login_ip":"130.56.11.89",
+               "created_at":"2021-01-23 17:21:18",
+               "pivot":{
+                  "gameplay_id":20,
+                  "user_id":45,
+                  "role":"guest"
+               }
+            },
+            {
+               "id":22,
+               "name":"Easter Hagenes",
+               "email":"hattie.hansen@example.org",
+               "nickname":"nestor42",
+               "last_login_at":"2021-01-23 17:21:18",
+               "last_login_ip":"249.245.232.237",
+               "created_at":"2021-01-23 17:21:18",
+               "pivot":{
+                  "gameplay_id":20,
+                  "user_id":22,
+                  "role":"guest"
+               }
+            }
+         ]
+      }
+   ],
+   "links":{
+      "first":"http://127.0.0.1:8000/api/gameplays?page=1",
+      "last":"http://127.0.0.1:8000/api/gameplays?page=150",
+      "prev":null,
+      "next":"http://127.0.0.1:8000/api/gameplays?page=2"
+   },
+   "meta":{
+      "current_page":1,
+      "from":1,
+      "last_page":150,
+      "links":[
+         {
+            "url":null,
+            "label":"&laquo; Previous",
+            "active":false
+         },
+         {
+            "url":"http://127.0.0.1:8000/api/gameplays?page=1",
+            "label":1,
+            "active":true
+         },
+         {
+            "url":"http://127.0.0.1:8000/api/gameplays?page=2",
+            "label":2,
+            "active":false
+         },
+         {
+            "url":"http://127.0.0.1:8000/api/gameplays?page=3",
+            "label":3,
+            "active":false
+         },
+         {
+            "url":"http://127.0.0.1:8000/api/gameplays?page=4",
+            "label":4,
+            "active":false
+         },
+         {
+            "url":"http://127.0.0.1:8000/api/gameplays?page=5",
+            "label":5,
+            "active":false
+         },
+         {
+            "url":"http://127.0.0.1:8000/api/gameplays?page=6",
+            "label":6,
+            "active":false
+         },
+         {
+            "url":"http://127.0.0.1:8000/api/gameplays?page=7",
+            "label":7,
+            "active":false
+         },
+         {
+            "url":"http://127.0.0.1:8000/api/gameplays?page=8",
+            "label":8,
+            "active":false
+         },
+         {
+            "url":"http://127.0.0.1:8000/api/gameplays?page=9",
+            "label":9,
+            "active":false
+         },
+         {
+            "url":"http://127.0.0.1:8000/api/gameplays?page=10",
+            "label":10,
+            "active":false
+         },
+         {
+            "url":null,
+            "label":"...",
+            "active":false
+         },
+         {
+            "url":"http://127.0.0.1:8000/api/gameplays?page=149",
+            "label":149,
+            "active":false
+         },
+         {
+            "url":"http://127.0.0.1:8000/api/gameplays?page=150",
+            "label":150,
+            "active":false
+         },
+         {
+            "url":"http://127.0.0.1:8000/api/gameplays?page=2",
+            "label":"Next &raquo;",
+            "active":false
+         }
+      ],
+      "path":"http://127.0.0.1:8000/api/gameplays",
+      "per_page":20,
+      "to":20,
+      "total":3000
+   }
+}
+    ```
+
+- Sample Call:
+
+    ```
+    $.ajax({
+        url: "gamecatalog.herokuapp.com/api/gameplays",
+        dataType: "json",
+        type : "GET",
+        success : function(data) {
+        console.log(data);
+        }
+    });
+
+    ```
+
+### Get  Player
+
+Returns json data of a gameplay, the game involved and players with their role.
+
+- URL
+
+    /gameplays/:gameplays
+
+- Method:
+
+    GET
+
+- URL Params
+
+   Required:
+
+   gameplays=[integer]
+
+
+- Data Params
+    None
+
+- Success Response:
+
+    Code: 200
+
+   Sample Sample Content:
+
+    ```
+    {
+    "data": {
+        "gameplay_id": 3000,
+        "no_players": 2,
+        "game_type": "multiplayer",
+        "version": {
+            "version_id": 24,
+            "version_name": "Wild Frontier",
+            "game_name": "Apex Legend",
+            "created_at": "January 2, 2014"
+        },
+        "players": [
+            {
+                "player_id": 29,
+                "player_name": "Lenora O'Reilly",
+                "player_email": "xwalker@example.com",
+                "last_login": "2021-01-23 17:21:18",
+                "login_ip": "167.166.49.159",
+                "role": "host"
+            },
+            {
+                "player_id": 46,
+                "player_name": "Lynn Barrows",
+                "player_email": "altenwerth.edythe@example.net",
+                "last_login": "2021-01-23 17:21:18",
+                "login_ip": "73.24.219.169",
+                "role": "guest"
+            }
+        ],
+        "created_at": "March 2, 2014, 12:00 pm"
+    }
+}
+
+    ```
+
+- Sample Call:
+
+    ```
+    $.ajax({
+        url: "gamecatalog.herokuapp.com/api/gameplays/3000",
+        dataType: "json",
+        type : "GET",
+        success : function(data) {
+        console.log(data);
+        }
+    });
+
+    ```
+If you find a mistake with an API or would like to contribute to our database, feel free to visit our Github Repo. We'd really appreciate it :)
