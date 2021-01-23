@@ -351,9 +351,9 @@ Returns json data of a player, its games and gameplays (overall and for each gam
     });
 
     ```
-### Get  Player
+### Get  All Games Version
 
-Returns json data ofall the games played per year and their players
+Returns json data of all the games version grouped per year and the players that has it.
 
 - URL
 
@@ -369,7 +369,7 @@ Returns json data ofall the games played per year and their players
 
 
 - Data Params
-    None
+    started
 
 - Success Response:
 
@@ -1050,6 +1050,247 @@ Returns json data ofall the games played per year and their players
     ```
     $.ajax({
         url: "gamecatalog.herokuapp.com/api/games",
+        dataType: "json",
+        type : "GET",
+        success : function(data) {
+        console.log(data);
+        }
+    });
+
+    ```
+### Get Game
+
+Returns json data of a game  and the versions
+
+- URL
+
+    /games/:games
+
+- Method:
+
+    GET
+
+- URL Params
+
+    games[interger]
+
+
+- Data Params
+    None
+
+- Success Response:
+
+    Code: 200
+
+    Content:
+
+    ```
+{
+    "data": {
+        "game_id": 3,
+        "game_name": "FIFA",
+        "created_at": "January 1, 2015",
+        "versions": [
+            {
+                "version_id": 13,
+                "version_name": "FIFA 15",
+                "game_name": "FIFA",
+                "created_at": "January 2, 2015"
+            },
+            {
+                "version_id": 14,
+                "version_name": "FIFA 16",
+                "game_name": "FIFA",
+                "created_at": "January 2, 2016"
+            },
+            {
+                "version_id": 15,
+                "version_name": "FIFA 17",
+                "game_name": "FIFA",
+                "created_at": "January 2, 2017"
+            },
+            {
+                "version_id": 16,
+                "version_name": "FIFA 18",
+                "game_name": "FIFA",
+                "created_at": "January 2, 2018"
+            },
+            {
+                "version_id": 17,
+                "version_name": "FIFA 19",
+                "game_name": "FIFA",
+                "created_at": "January 2, 2019"
+            },
+            {
+                "version_id": 18,
+                "version_name": "FIFA 20",
+                "game_name": "FIFA",
+                "created_at": "January 2, 2020"
+            }
+        ]
+    }
+}
+    ```
+
+- Sample Call:
+
+    ```
+    $.ajax({
+        url: "gamecatalog.herokuapp.com/api/games/3",
+        dataType: "json",
+        type : "GET",
+        success : function(data) {
+        console.log(data);
+        }
+    });
+
+    ```
+
+### Get Game
+
+Returns json data of all games within a date range
+
+
+- URL
+
+    /games/range/
+
+- Method:
+
+    GET
+
+- URL Params
+
+
+- Data Params
+    - start_date
+    - end_date
+
+- Success Response:
+
+    Code: 200
+
+    Content:
+
+    ```
+{
+   {
+   "data":[
+      {
+         "id":24,
+         "game_id":5,
+         "version":"Wild Frontier",
+         "year":2014,
+         "created_at":"2014-01-02 12:00:00",
+         "players":[
+            {
+               "id":1,
+               "name":"Ms. Reanna Vandervort",
+               "email":"connelly.curtis@example.org",
+               "nickname":"wmetz",
+               "last_login_at":"2021-01-23 17:21:18",
+               "last_login_ip":"182.147.93.141",
+               "created_at":"2021-01-23 17:21:18",
+               "pivot":{
+                  "version_id":24,
+                  "user_id":1
+               }
+            },
+            {
+               "id":2,
+               "name":"Erika Kohler",
+               "email":"brannon93@example.org",
+               "nickname":"pietro.schneider",
+               "last_login_at":"2021-01-23 17:21:18",
+               "last_login_ip":"72.3.130.173",
+               "created_at":"2021-01-23 17:21:18",
+               "pivot":{
+                  "version_id":24,
+                  "user_id":2
+               }
+            },
+            {
+               "id":3,
+               "name":"Kirsten Morar I",
+               "email":"htorp@example.net",
+               "nickname":"rosalee.dubuque",
+               "last_login_at":"2021-01-23 17:21:18",
+               "last_login_ip":"32.15.153.155",
+               "created_at":"2021-01-23 17:21:18",
+               "pivot":{
+                  "version_id":24,
+                  "user_id":3
+               }
+            },
+            {
+               "id":4,
+               "name":"Shana Howell",
+               "email":"orlando.wiegand@example.net",
+               "nickname":"wnitzsche",
+               "last_login_at":"2021-01-23 17:21:18",
+               "last_login_ip":"16.159.203.114",
+               "created_at":"2021-01-23 17:21:18",
+               "pivot":{
+                  "version_id":24,
+                  "user_id":4
+               }
+            },
+            {
+               "id":5,
+               "name":"Cristobal Schneider",
+               "email":"berneice77@example.org",
+               "nickname":"ritchie.rodrigo",
+               "last_login_at":"2021-01-23 17:21:18",
+               "last_login_ip":"236.82.58.154",
+               "created_at":"2021-01-23 17:21:18",
+               "pivot":{
+                  "version_id":24,
+                  "user_id":5
+               }
+            }
+         ]
+      }
+   ],
+   "links":{
+      "first":"http://127.0.0.1:8000/api/games/range?page=1",
+      "last":"http://127.0.0.1:8000/api/games/range?page=1",
+      "prev":null,
+      "next":null
+   },
+   "meta":{
+      "current_page":1,
+      "from":1,
+      "last_page":1,
+      "links":[
+         {
+            "url":null,
+            "label":"&laquo; Previous",
+            "active":false
+         },
+         {
+            "url":"http://127.0.0.1:8000/api/games/range?page=1",
+            "label":1,
+            "active":true
+         },
+         {
+            "url":null,
+            "label":"Next &raquo;",
+            "active":false
+         }
+      ],
+      "path":"http://127.0.0.1:8000/api/games/range",
+      "per_page":10,
+      "to":1,
+      "total":1
+   }
+}
+    ```
+
+- Sample Call:
+
+    ```
+    $.ajax({
+        url: "gamecatalog.herokuapp.com/api/games/3",
         dataType: "json",
         type : "GET",
         success : function(data) {
