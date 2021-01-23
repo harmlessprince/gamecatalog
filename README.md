@@ -190,15 +190,15 @@ Returns json data of a player, its games and gameplays (overall and for each gam
 
     Sample Content:
 
-    ```
-      {
+```
+
   {
    "data":{
       "player_id":14,
       "player_name":"Ms. Patricia Trantow",
       "player_email":"paris.kuhlman@example.net",
       "last_login":"2021-01-23 18:53:14",
-      "login_ip":"133.161.215.88",
+      "login_ip":"133.215.88",
       "games":[
         
          {
@@ -336,11 +336,11 @@ Returns json data of a player, its games and gameplays (overall and for each gam
       ]
    }
 }
-    ```
+```
 
 - Sample Call:
 
-    ```
+```
     $.ajax({
         url: "gamecatalog.herokuapp.com/api/players/14",
         dataType: "json",
@@ -350,7 +350,7 @@ Returns json data of a player, its games and gameplays (overall and for each gam
         }
     });
 
-    ```
+```
 ### Get All Games and their Versions
 
 Returns json data of all the games version grouped per year and the players that has it.
@@ -1042,22 +1042,24 @@ Returns json data of all the games version grouped per year and the players that
          }
       ]
    }
-}
-    ```
+    }
+
+```
 
 - Sample Call:
 
-    ```
-    $.ajax({
+
+$.ajax({
         url: "gamecatalog.herokuapp.com/api/games",
         dataType: "json",
         type : "GET",
         success : function(data) {
         console.log(data);
         }
-    });
+});
 
-    ```
+```
+
 ### Get Game
 
 Returns json data of a game  and the versions
@@ -1282,11 +1284,14 @@ Returns json data of all games within a date range
       "to":1,
       "total":1
       }
+
 }
+
 ```
+
 - Sample Call:
 
-    ```
+```
     $.ajax({
         url: "gamecatalog.herokuapp.com/api/games/3",
         dataType: "json",
@@ -1295,7 +1300,6 @@ Returns json data of all games within a date range
         console.log(data);
         }
     });
-
     ```
 ### Get  All Gameplays
 
@@ -1910,8 +1914,7 @@ Returns json data of all the gameplays and the players that participated.
       "to":20,
       "total":3000
    }
-}
-    ```
+
 
 - Sample Call:
 
@@ -1927,7 +1930,7 @@ Returns json data of all the gameplays and the players that participated.
 
     ```
 
-### Get  Player
+### Get  Gameplay
 
 Returns json data of a gameplay, the game involved and players with their role.
 
@@ -1955,7 +1958,7 @@ Returns json data of a gameplay, the game involved and players with their role.
 
    Sample Sample Content:
 
-    ```
+```
     {
     "data": {
         "gameplay_id": 3000,
@@ -1989,7 +1992,7 @@ Returns json data of a gameplay, the game involved and players with their role.
     }
 }
 
-    ```
+```
 
 - Sample Call:
 
