@@ -1,0 +1,58 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Http\Resources\GameResource;
+use App\Http\Resources\GamesCollection;
+use App\Models\Game;
+use App\Models\Version;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
+class GameController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+
+        $versions = Version::with('players')
+            ->orderBy('created_at')
+            ->get()
+            ->groupBy(function ($val) {
+                return Carbon::parse($val->created_at)->format('d j, Y');
+            });
+
+        return new GamesCollection($versions);
+    }
+
+    public function getGamePerDateRange(Request $request)
+    {
+        $this->validate($request, [
+            'start_date' => 'required|date',
+            'end_date'   => 'required|date|after:start_date',
+        ]);
+
+        $from = date($request->start_date);
+        $to = date($request->end_date);
+        $versions = Version::with('players')->whereBetween('created_at',  [$from, $to])->paginate(10);
+        return new GamesCollection($versions);
+    }
+
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($game)
+    {
+        //
+        return new GameResource(Game::findOrFail($game));
+    }
+}
