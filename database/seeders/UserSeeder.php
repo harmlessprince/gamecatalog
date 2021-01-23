@@ -16,6 +16,6 @@ class UserSeeder extends Seeder
     public function run()
     {
         DB::disableQueryLog();//disable log
-        User::factory(10000)->create();
+        User::factory(50)->create();
     }
 }

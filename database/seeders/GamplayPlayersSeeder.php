@@ -24,12 +24,12 @@ class GamplayPlayersSeeder extends Seeder
 
 
 
-        $games = 50000;
+        $games = 3900;
 
 
         echo "We are creating " . $games . "number of games been played by players" . "\n";
         while ($games > 0) {
-            $randomID = rand(1, 5752500);
+            $randomID = rand(1, 1500);
             // $randomID = rand(1, 73);
             $value = Gameplay::where('id', $randomID)->first();
 
@@ -43,40 +43,16 @@ class GamplayPlayersSeeder extends Seeder
 
 
 
-            // for ($i = 0; $i < $noOfUsers; $i++) {
-            //     $role = ($i == 0) ? 'host' : 'guest';
-            //     $randomUserId = rand(1, 10000);
-
-            //     $userID = User::where('id', $randomUserId)->value('id');
-
-            //     $usercounts =  User::where('id', $userID)->withCount('gameplays')->get();
-
-            //     //check if user has the version of game
-            //     if (DB::table('version_user')->where('version_id', '=', $value->version_id)->where('user_id', $userID)->exists()) {
-
-            //         $GamingsData[] = [
-            //             'user_id' => $userID,
-            //             'gameplay_id' => $value->id,
-            //             'role' => $role,
-            //             'created_at' => $value->created_at,
-            //         ];
-            //     }
-            //     // $i--;
-            //     // continue;
-            // }
-
-
-            $i = 0;
-            do {
+            for ($i = 0; $i < $noOfUsers; $i++) {
                 $role = ($i == 0) ? 'host' : 'guest';
-                $randomUserId = rand(1, 10000);
+                $randomUserId = rand(1, 50);
 
                 $userID = User::where('id', $randomUserId)->value('id');
 
-                // $usercounts =  User::where('id', $userID)->withCount('gameplays')->get();
+                $usercounts =  User::where('id', $userID)->withCount('gameplays')->get();
 
                 //check if user has the version of game
-                // if (DB::table('version_user')->where('version_id', '=', $value->version_id)->where('user_id', $userID)->exists()) {
+                if (DB::table('version_user')->where('version_id', '=', $value->version_id)->where('user_id', $userID)->exists()) {
 
                     $GamingsData[] = [
                         'user_id' => $userID,
@@ -84,9 +60,33 @@ class GamplayPlayersSeeder extends Seeder
                         'role' => $role,
                         'created_at' => $value->created_at,
                     ];
-                // }
-                $i++;
-            } while ($i < $noOfUsers);
+                }
+                // $i--;
+                // continue;
+            }
+
+
+            // $i = 0;
+            // do {
+            //     $role = ($i == 0) ? 'host' : 'guest';
+            //     $randomUserId = rand(1, 10000);
+
+            //     $userID = User::where('id', $randomUserId)->value('id');
+
+            //     // $usercounts =  User::where('id', $userID)->withCount('gameplays')->get();
+
+            //     //check if user has the version of game
+            //     // if (DB::table('version_user')->where('version_id', '=', $value->version_id)->where('user_id', $userID)->exists()) {
+
+            //         $GamingsData[] = [
+            //             'user_id' => $userID,
+            //             'gameplay_id' => $value->id,
+            //             'role' => $role,
+            //             'created_at' => $value->created_at,
+            //         ];
+            //     // }
+            //     $i++;
+            // } while ($i < $noOfUsers);
             
             $games--;
         }

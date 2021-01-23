@@ -21,13 +21,13 @@ class GameSeeder extends Seeder
         $games = [
             [
                 'name' => 'Call of Duty',
-                'year'  => Carbon::create(2010, 1, 1, 12),
+                'year'  => Carbon::create(2015, 1, 1, 12),
                 'versions' => [
-                    ['name' => 'Black Ops', 'year' => '2010'],
-                    ['name' => 'Modern Warfare 3', 'year' => '2011'],
-                    ['name' => 'Black Ops II', 'year' => '2012'],
-                    ['name' => 'Ghosts', 'year' => '2013'],
-                    ['name' => 'Advanced Warfare', 'year' => '2014'],
+                    // ['name' => 'Black Ops', 'year' => '2010'],
+                    // ['name' => 'Modern Warfare 3', 'year' => '2011'],
+                    // ['name' => 'Black Ops II', 'year' => '2012'],
+                    // ['name' => 'Ghosts', 'year' => '2013'],
+                    // ['name' => 'Advanced Warfare', 'year' => '2014'],
                     ['name' => 'Black Ops III', 'year' => '2015'],
                     ['name' => ' Modern Warfare Remastered', 'year' => '2016'],
                     ['name' => ' Infinite Warfare', 'year' => '2017'],
@@ -38,13 +38,13 @@ class GameSeeder extends Seeder
             ],
             [
                 'name' => 'Mortal Kombat',
-                'year'  => Carbon::create(2010, 1, 1, 12),
+                'year'  => Carbon::create(2015, 1, 1, 12),
                 'versions' => [
-                    ['name' => 'Advance', 'year' => '2010'],
-                    ['name' => 'Deadly Alliance', 'year' => '2011'],
-                    ['name' => 'Tournament Edition', 'year' => '2012'],
-                    ['name' => 'Deception', 'year' => '2013'],
-                    ['name' => 'Shaolin Monks', 'year' => '2014'],
+                    // ['name' => 'Advance', 'year' => '2010'],
+                    // ['name' => 'Deadly Alliance', 'year' => '2011'],
+                    // ['name' => 'Tournament Edition', 'year' => '2012'],
+                    // ['name' => 'Deception', 'year' => '2013'],
+                    // ['name' => 'Shaolin Monks', 'year' => '2014'],
                     ['name' => 'Armageddon', 'year' => '2015'],
                     ['name' => 'Unchained', 'year' => '2016'],
                     ['name' => ' Ultimate', 'year' => '2017'],
@@ -55,13 +55,13 @@ class GameSeeder extends Seeder
             ],
             [
                 'name' => 'FIFA',
-                'year'  => Carbon::create(2010, 1, 1, 12),
+                'year'  => Carbon::create(2015, 1, 1, 12),
                 'versions' => [
-                    ['name' => 'FIFA 10', 'year' => '2010'],
-                    ['name' => 'FIFA 11', 'year' => '2011'],
-                    ['name' => 'FIFA 12', 'year' => '2012'],
-                    ['name' => 'FIFA 13', 'year' => '2013'],
-                    ['name' => 'FIFA 14', 'year' => '2014'],
+                    // ['name' => 'FIFA 10', 'year' => '2010'],
+                    // ['name' => 'FIFA 11', 'year' => '2011'],
+                    // ['name' => 'FIFA 12', 'year' => '2012'],
+                    // ['name' => 'FIFA 13', 'year' => '2013'],
+                    // ['name' => 'FIFA 14', 'year' => '2014'],
                     ['name' => 'FIFA 15', 'year' => '2015'],
                     ['name' => 'FIFA 16', 'year' => '2016'],
                     ['name' => 'FIFA 17', 'year' => '2017'],
@@ -72,7 +72,7 @@ class GameSeeder extends Seeder
             ],
             [
                 'name' => 'Just Cause',
-                'year'  => Carbon::create(2010, 1, 1, 12),
+                'year'  => Carbon::create(2016, 1, 1, 12),
                 'versions' => [
                     ['name' => 'Just Cause 1', 'year' => '2016'],
                     ['name' => 'Just Cause 2', 'year' => '2017'],
@@ -83,7 +83,7 @@ class GameSeeder extends Seeder
             ],
             [
                 'name' => 'Apex Legend',
-                'year'  => Carbon::create(2010, 1, 1, 12),
+                'year'  => Carbon::create(2014, 1, 1, 12),
                 'versions' => [
                     ['name' => 'Wild Frontier', 'year' => '2014'],
                     ['name' => 'Battle Charge', 'year' => '2015'],

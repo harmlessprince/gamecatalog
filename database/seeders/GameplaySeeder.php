@@ -19,15 +19,16 @@ class GameplaySeeder extends Seeder
     {
         DB::disableQueryLog();//disable log
         //
-        $startDate = Carbon::create(2010, 1, 1, 12);
-        $gaminDays =3835;
+        $startDate = Carbon::create(2014, 1, 1, 12);
+        $gaminDays =30;
         // $gaminDays =300;
         // $noOfGamePlaysPerDay = 10;
         while ($gaminDays > 0) {
             $versionsAllowable = Version::whereYear('year', '<=', $startDate->year)->get();
            
             $gameplayCount = 0;
-            while ($gameplayCount < 1500) {
+            while ($gameplayCount < 50) {
+                // $slectedGameVersion = $versionsAllowable->random()->id;
                 $slectedGameVersion = $versionsAllowable->random()->id;
                 $multiplayerChoice = array_rand([true, false], 1);
                 $gameplayData [] = 
@@ -45,7 +46,7 @@ class GameplaySeeder extends Seeder
             echo $gaminDays . " gameplays left fetch" . "\n";
         }
         
-        $gameplayDataInChunks = array_chunk($gameplayData, 5000);
+        $gameplayDataInChunks = array_chunk($gameplayData, 100);
         foreach ($gameplayDataInChunks as $key => $gameplayDataInChunk) {
             print_r ((($key/5000)*100)*100) .PHP_EOL;
            Gameplay::insert($gameplayDataInChunk);
