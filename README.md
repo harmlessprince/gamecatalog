@@ -4,52 +4,153 @@
 The API for a game catalog. The game has players who play it very frequently. The games come in versions so players can own a game in one or more versions of the game.
 The system contains game play record per player per game. Their are basically two forms of game play, we havethe single and multiplayer. The players  can be involved in any type. When it is a single player, only one player is assigned to a game play otherwise, other players are added to the game play based on number of players required by the system. The system records who started the game as the host and those invited to join as the guest.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+All players has been assigned all game versions in the system, so they are able to take part in all games in the system.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Note
+- Each of game only allows a maximum of 4 players
+- Players can only play together if they have the same game versions.
 
-## Learning Laravel
+## How to use
+You can use AJAX to call the Game Catalog API and will receive a data in return depending on the endpoint you you are calling. If you are using jQuery, you can use the $.ajax() function in the code snippet below to get started.
+```
+$.ajax({
+  url: https://gamecatalog.herokuapp.com/api/players',
+  dataType: 'json',
+  success: function(data) {
+    console.log(data);
+  }
+});
+      
+```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Endpoints
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Get All Players
+Returns json data of all players, their games and their gameplays (overall and for each game).
 
-## Laravel Sponsors
+- URL
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+    /players/
 
-### Premium Partners
+- Method:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/)**
-- **[OP.GG](https://op.gg)**
+    GET
 
-## Contributing
+- URL Params
+    none
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- Data Params
+    None
 
-## Code of Conduct
+- Success Response:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+    Code: 200
+    
+    Content: 
+    ```
+       "data": [
+        {
+            "player_id": 1,
+            "player_name": "Hannah Walter PhD",
+            "player_email": "strosin.kennith@example.com",
+            "last_login": "2021-01-23 18:53:14",
+            "login_ip": "195.50.130.198",
+            "games": [
+                {
+                    "version_id": 1,
+                    "version_name": "Black Ops III",
+                    "game_name": "Call of Duty",
+                    "created_at": "January 2, 2015"
+                },
+                {
+                    "version_id": 2,
+                    "version_name": " Modern Warfare Remastered",
+                    "game_name": "Call of Duty",
+                    "created_at": "January 2, 2016"
+                },
+                
+            ],
+            "gameplays": [
+                {
+                    "gameplay_id": 16,
+                    "no_players": 3,
+                    "game_type": "multiplayer",
+                    "version": {
+                        "version_id": 24,
+                        "version_name": "Wild Frontier",
+                        "game_name": "Apex Legend",
+                        "created_at": "January 2, 2014"
+                    },
+                    "players": [
+                        {
+                            "player_id": 1,
+                            "player_name": "Hannah Walter PhD",
+                            "player_email": "strosin.kennith@example.com",
+                            "last_login": "2021-01-23 18:53:14",
+                            "login_ip": "195.50.130.198",
+                            "role": "guest"
+                        },
+                        {
+                            "player_id": 17,
+                            "player_name": "Sarina Schroeder",
+                            "player_email": "urban.kemmer@example.com",
+                            "last_login": "2021-01-23 18:53:14",
+                            "login_ip": "160.231.10.124",
+                            "role": "guest"
+                        },
+                        {
+                            "player_id": 20,
+                            "player_name": "Rachel Fahey",
+                            "player_email": "haylie28@example.net",
+                            "last_login": "2021-01-23 18:53:14",
+                            "login_ip": "33.106.50.7",
+                            "role": "host"
+                        }
+                    ],
+                    "created_at": "March 2, 2014, 12:00 pm"
+                },
+                {
+                "gameplay_id": 137,
+                "no_players": 2,
+                "game_type": "multiplayer",
+                    "version": {
+                        "version_id": 24,
+                        "version_name": "Wild Frontier",
+                        "game_name": "Apex Legend",
+                        "created_at": "January 2, 2014"
+                    },
+                    "players": [
+                        {
+                            "player_id": 20,
+                            "player_name": "Rachel Fahey",
+                            "player_email": "haylie28@example.net",
+                            "last_login": "2021-01-23 18:53:14",
+                            "login_ip": "33.106.50.7",
+                            "role": "host"
+                        },
+                        {
+                            "player_id": 1,
+                            "player_name": "Hannah Walter PhD",
+                            "player_email": "strosin.kennith@example.com",
+                            "last_login": "2021-01-23 18:53:14",
+                            "login_ip": "195.50.130.198",
+                            "role": "guest"
+                        }
+                    ],
+                    "created_at": "March 2, 2014, 12:00 pm"
+                },
+               }  
+     ```
+     
+- Sample Call:
 
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```
+  $.ajax({
+    url: "/users/1",
+    dataType: "json",
+    type : "GET",
+    success : function(r) {
+      console.log(r);
+    }
+  });
+ ```
