@@ -1084,8 +1084,8 @@ Returns json data of a game  and the versions
 
     Sample Content:
 
-    ```
-{
+```
+`{
     "data": {
         "game_id": 3,
         "game_name": "FIFA",
@@ -1130,7 +1130,7 @@ Returns json data of a game  and the versions
         ]
     }
 }
-    ```
+```
 
 - Sample Call:
 
@@ -1172,7 +1172,7 @@ Returns json data of all games within a date range
 
     Sample Content:
 
-    ```{
+    ```
    {
    "data":[
       {
@@ -1283,7 +1283,7 @@ Returns json data of all games within a date range
       "total":1
       }
 }
-
+```
 - Sample Call:
 
     ```
