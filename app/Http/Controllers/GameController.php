@@ -14,9 +14,10 @@ use Illuminate\Support\Facades\DB;
 class GameController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Add a word to the list.
      *
-     * @return \Illuminate\Http\Response
+     * This endpoint allows you to add a word to the list. It's a really useful endpoint,
+     * and you should play around with it for a bit.
      */
     public function index()
     {
