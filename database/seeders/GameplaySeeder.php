@@ -24,7 +24,7 @@ class GameplaySeeder extends Seeder
         // $gaminDays =300;
         // $noOfGamePlaysPerDay = 10;
         while ($gaminDays > 0) {
-            $versionsAllowable = Version::whereYear('year', '<=', $startDate->year)->get();
+            $versionsAllowable = Version::where('year', '<=', $startDate->year)->get();
            
             $gameplayCount = 0;
             while ($gameplayCount < 50) {
